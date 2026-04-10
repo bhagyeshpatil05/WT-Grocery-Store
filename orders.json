@@ -1,0 +1,31 @@
+[
+  {
+    "orderId": "FM1775751012552321",
+    "date": "9/4/2026, 9:40:12 pm",
+    "customer": {
+      "name": "Data Science Harry",
+      "email": "ravi@gamil.com",
+      "phone": "1234567894",
+      "address": "Defence Area, Pimple Gurav"
+    },
+    "payment": "cod",
+    "cart": {
+      "4": {
+        "name": "Mixed Snack Pack",
+        "price": 85,
+        "qty": 1
+      },
+      "5": {
+        "name": "Basmati Rice",
+        "price": 120,
+        "qty": 1
+      },
+      "6": {
+        "name": "Mixed Fruit Juice",
+        "price": 95,
+        "qty": 1
+      }
+    },
+    "total": 300
+  }
+]

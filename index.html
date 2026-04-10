@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FreshMart – Local Grocery Store</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <!-- Brand Logo (inline style example) -->
+    <a class="navbar-brand" href="#home" style="font-family: 'Playfair Display', serif; font-size: 1.6rem;">
+      <span class="brand-leaf">🌿</span> FreshMart
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center gap-2">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cart">Cart</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <!-- Cart icon with badge -->
+        <li class="nav-item">
+          <a class="nav-link cart-icon-btn" href="#cart">
+            <i class="bi bi-basket3-fill"></i>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO SECTION ========== -->
+<section id="home" class="hero-section">
+  <div class="hero-bg-pattern"></div>
+  <div class="container hero-content text-center">
+    <p class="hero-eyebrow">Fresh · Local · Affordable</p>
+    <h1 class="hero-title">Your Neighbourhood<br/>Grocery, Reimagined</h1>
+    <p class="hero-subtitle">Hand-picked produce, everyday essentials, and pantry favourites — delivered to your door or ready for pickup.</p>
+    <a href="#products" class="btn btn-hero">Shop Now <i class="bi bi-arrow-down-short"></i></a>
+  </div>
+  <!-- Floating badges (inline style used intentionally) -->
+  <div class="hero-badge" style="top: 30%; left: 8%;">🥛 Fresh Dairy</div>
+  <div class="hero-badge" style="top: 55%; right: 7%;">🥦 Organic Veggies</div>
+</section>
+
+<!-- ========== PRODUCTS SECTION ========== -->
+<section id="products" class="products-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-tag">Our Products</span>
+      <h2 class="section-title">Everyday Essentials</h2>
+      <p class="section-sub">Quality items at prices that make sense.</p>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="row g-4" id="productGrid">
+
+      <!-- Product Card 1: Milk -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <!-- Emoji-based product illustration -->
+            <div class="product-emoji">🥛</div>
+            <span class="product-badge-tag">Bestseller</span>
+          </div>
+          <div class="product-info">
+            <h5 class="product-name">Full-Cream Milk</h5>
+            <p class="product-desc">Farm-fresh, pasteurised whole milk. 1 Litre pack.</p>
+            <div class="product-footer">
+              <span class="product-price">₹52</span>
+              <!-- data-* attributes store product info for JavaScript -->
+              <button class="btn btn-add-cart"
+                data-id="1"
+                data-name="Full-Cream Milk"
+                data-price="52"
+                onclick="addToCart(this)">
+                <i class="bi bi-plus-lg"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2: Bread -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <div class="product-emoji">🍞</div>
+          </div>
+          <div class="product-info">
+            <h5 class="product-name">Whole Wheat Bread</h5>
+            <p class="product-desc">Soft, fibre-rich whole wheat loaf. 400 g.</p>
+            <div class="product-footer">
+              <span class="product-price">₹45</span>
+              <button class="btn btn-add-cart"
+                data-id="2" data-name="Whole Wheat Bread" data-price="45"
+                onclick="addToCart(this)">
+                <i class="bi bi-plus-lg"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3: Eggs -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <div class="product-emoji">🥚</div>
+            <span class="product-badge-tag new-tag">New</span>
+          </div>
+          <div class="product-info">
+            <h5 class="product-name">Farm Eggs (6 pack)</h5>
+            <p class="product-desc">Free-range, Grade A eggs. Pack of 6.</p>
+            <div class="product-footer">
+              <span class="product-price">₹72</span>
+              <button class="btn btn-add-cart"
+                data-id="3" data-name="Farm Eggs (6 pack)" data-price="72"
+                onclick="addToCart(this)">
+                <i class="bi bi-plus-lg"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 4: Snacks -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <div class="product-emoji">🍿</div>
+          </div>
+          <div class="product-info">
+            <h5 class="product-name">Mixed Snack Pack</h5>
+            <p class="product-desc">Assorted savoury snacks – perfect for evenings.</p>
+            <div class="product-footer">
+              <span class="product-price">₹85</span>
+              <button class="btn btn-add-cart"
+                data-id="4" data-name="Mixed Snack Pack" data-price="85"
+                onclick="addToCart(this)">
+                <i class="bi bi-plus-lg"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 5: Rice -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <div class="product-emoji">🍚</div>
+            <span class="product-badge-tag">Bestseller</span>
+          </div>
+          <div class="product-info">
+            <h5 class="product-name">Basmati Rice</h5>
+            <p class="product-desc">Long-grain premium basmati. 1 kg bag.</p>
+            <div class="product-footer">
+              <span class="product-price">₹120</span>
+              <button class="btn btn-add-cart"
+                data-id="5" data-name="Basmati Rice" data-price="120"
+                onclick="addToCart(this)">
+                <i class="bi bi-plus-lg"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 6: Juice -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <div class="product-emoji">🧃</div>
+          </div>
+          <div class="product-info">
+            <h5 class="product-name">Mixed Fruit Juice</h5>
+            <p class="product-desc">No added sugar, 100% natural juice. 1 L.</p>
+            <div class="product-footer">
+              <span class="product-price">₹95</span>
+              <button class="btn btn-add-cart"
+                data-id="6" data-name="Mixed Fruit Juice" data-price="95"
+                onclick="addToCart(this)">
+                <i class="bi bi-plus-lg"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+<!-- ========== CART SECTION ========== -->
+<section id="cart" class="cart-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-tag">Your Selection</span>
+      <h2 class="section-title">Smart Cart 🛒</h2>
+    </div>
+
+    <!-- Cart is dynamically populated by JavaScript -->
+    <div class="cart-wrapper">
+      <!-- Empty state (shown by default) -->
+      <div id="cartEmpty" class="cart-empty">
+        <div class="cart-empty-icon">🛒</div>
+        <p>Your cart is empty. Add some items above!</p>
+      </div>
+
+      <!-- Cart items container (hidden when empty) -->
+      <div id="cartContent" style="display:none;">
+        <table class="table cart-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th class="text-center">Qty</th>
+              <th class="text-end">Price</th>
+              <th class="text-end">Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <!-- Cart rows injected by JavaScript -->
+          <tbody id="cartItems"></tbody>
+        </table>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+          <div class="cart-summary-row">
+            <span>Subtotal</span>
+            <span id="cartSubtotal">₹0</span>
+          </div>
+          <div class="cart-summary-row">
+            <span>Delivery</span>
+            <span class="text-success">FREE</span>
+          </div>
+          <div class="cart-summary-row total-row">
+            <span>Total</span>
+            <span id="cartTotal">₹0</span>
+          </div>
+          <button class="btn btn-checkout w-100 mt-3" onclick="showCheckout()">
+            Proceed to Checkout <i class="bi bi-arrow-right"></i>
+          </button>
+          <button class="btn btn-clear w-100 mt-2" onclick="clearCart()">
+            <i class="bi bi-trash3"></i> Clear Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CHECKOUT FORM (hidden by default) ========== -->
+<section id="checkout" class="checkout-section" style="display:none;">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-tag">Final Step</span>
+      <h2 class="section-title">Checkout</h2>
+    </div>
+
+    <div class="checkout-card">
+      <!-- Order summary inside checkout -->
+      <div class="checkout-order-summary mb-4" id="checkoutSummary"></div>
+
+      <!-- Checkout Form - validated by JavaScript, handled by PHP/Node -->
+      <form id="checkoutForm" novalidate>
+        <div class="row g-3">
+
+          <!-- Full Name -->
+          <div class="col-md-6">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-control" id="custName" placeholder="Ravi Kumar"/>
+            <div class="error-msg" id="nameError"></div>
+          </div>
+
+          <!-- Email -->
+          <div class="col-md-6">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-control" id="custEmail" placeholder="ravi@example.com"/>
+            <div class="error-msg" id="emailError"></div>
+          </div>
+
+          <!-- Phone -->
+          <div class="col-md-6">
+            <label class="form-label">Phone Number * (10 digits)</label>
+            <input type="tel" class="form-control" id="custPhone" placeholder="9876543210" maxlength="10"/>
+            <div class="error-msg" id="phoneError"></div>
+          </div>
+
+          <!-- Address -->
+          <div class="col-12">
+            <label class="form-label">Delivery Address *</label>
+            <textarea class="form-control" id="custAddress" rows="3" placeholder="123, Main Street, Pune 411001"></textarea>
+            <div class="error-msg" id="addressError"></div>
+          </div>
+
+          <!-- Payment (UI only) -->
+          <div class="col-12">
+            <label class="form-label">Payment Method</label>
+            <div class="payment-options">
+              <label class="payment-opt active">
+                <input type="radio" name="payment" value="cod" checked/> Cash on Delivery
+              </label>
+              <label class="payment-opt">
+                <input type="radio" name="payment" value="upi"/> UPI
+              </label>
+              <label class="payment-opt">
+                <input type="radio" name="payment" value="card"/> Card
+              </label>
+            </div>
+          </div>
+
+          <!-- Submit buttons -->
+          <div class="col-12 d-flex gap-3 flex-wrap">
+            <!-- Submits to PHP backend -->
+            <button type="button" class="btn btn-submit-php" onclick="submitPHP()">
+              <i class="bi bi-server"></i> Place Order (PHP)
+            </button>
+            <!-- Submits to Node.js backend -->
+            <button type="button" class="btn btn-submit-node" onclick="submitNode()">
+              <i class="bi bi-node-plus"></i> Place Order (Node.js)
+            </button>
+            <button type="button" class="btn btn-back" onclick="hideCheckout()">
+              <i class="bi bi-arrow-left"></i> Back to Cart
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Success message (shown after submission) -->
+      <div id="orderSuccess" class="order-success" style="display:none;">
+        <div class="success-icon">✅</div>
+        <h3>Order Placed Successfully!</h3>
+        <p id="successMsg"></p>
+        <button class="btn btn-hero mt-3" onclick="resetAll()">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT SECTION ========== -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-md-6">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title mt-2">Visit Us Today</h2>
+        <div class="contact-info">
+          <p><i class="bi bi-geo-alt-fill"></i> 12, Green Park Market, Pune 411001</p>
+          <p><i class="bi bi-telephone-fill"></i> +91 98765 43210</p>
+          <p><i class="bi bi-envelope-fill"></i> hello@freshmart.in</p>
+          <p><i class="bi bi-clock-fill"></i> Mon – Sat: 8 AM – 9 PM</p>
+        </div>
+      </div>
+      <div class="col-md-6 text-center">
+        <div class="contact-map-placeholder">📍 Pune, Maharashtra</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h5 class="footer-brand">🌿 FreshMart</h5>
+        <p class="footer-desc">Your trusted local grocery store since 2010. Fresh produce, everyday prices.</p>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-heading">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#cart">Cart</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="footer-heading">Follow Us</h6>
+        <div class="social-links">
+          <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-whatsapp"></i></a>
+        </div>
+        <p class="footer-desc mt-3" style="font-size:0.8rem;">© 2025 FreshMart. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast notification -->
+<div id="toastMsg" class="toast-notification"></div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="script.js"></script>
+</body>
+</html>

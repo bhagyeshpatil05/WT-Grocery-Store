@@ -1,0 +1,6 @@
+FreshMart – Orders Log (PHP Backend)
+=====================================================
+Orders placed through checkout.php will appear below.
+Each order is appended with a timestamp and order ID.
+=====================================================
+
